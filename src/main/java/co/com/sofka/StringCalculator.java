@@ -19,6 +19,7 @@ public class StringCalculator {
 
             String[] splittedList = null;
             if(delimiter != null) {
+
                 splittedList = values.substring(1, values.length()).split(delimiter);
             } else {
                 splittedList = values.split("[,|\n]");

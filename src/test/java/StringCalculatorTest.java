@@ -50,7 +50,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void singleCharDelimiterTest() throws Exception{
+    void singleCharDelimiterTest() throws Exception{
         Assertions.assertEquals(1002,stringCalculatorInstance.add("#2#1000"));
     }
 
