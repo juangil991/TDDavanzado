@@ -24,4 +24,34 @@ public class StringCalculatorTest {
         Assertions.assertEquals(3,stringCalculatorInstance.add("1,2"));
     }
 
+    @Test
+    void sameThatBeforeButNewLineDelimitedTest() throws Exception{
+        Assertions.assertEquals(2,stringCalculatorInstance.add("0\n2"));
+        Assertions.assertEquals(2,stringCalculatorInstance.add("1\n1"));
+        Assertions.assertEquals(3,stringCalculatorInstance.add("1\n2"));
+
+    }
+
+    @Test
+    void sameThatBeforeButAllDelimitersWorksTest() throws Exception{
+        Assertions.assertEquals(6,stringCalculatorInstance.add("1\n2,3"));
+        Assertions.assertEquals(7,stringCalculatorInstance.add("1,2\n4"));
+    }
+
+    @Test
+     void negativeNumbersThrowsAnExceptionTest() throws Exception {
+        Assertions.assertThrows(Exception.class,()->stringCalculatorInstance.add("-1,-1"));
+    }
+
+    @Test
+    void greaterThan1000AreIgnoredTest() throws Exception{
+        Assertions.assertEquals(1002,stringCalculatorInstance.add("2,1000"));
+        Assertions.assertEquals(2,stringCalculatorInstance.add("2,1001"));
+    }
+
+    @Test
+    public void singleCharDelimiterTest() throws Exception{
+        Assertions.assertEquals(1002,stringCalculatorInstance.add("#2#1000"));
+    }
+
 }
